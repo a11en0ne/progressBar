@@ -1,6 +1,7 @@
 import React from "react";
 import bar from "./bar.jpg";
 import pointer from "./pointer.jpg";
+import styled, { keyframes } from "styled-components";
 
 function ProgressBar(props) {
   // destrcuture props
@@ -15,28 +16,39 @@ function ProgressBar(props) {
     value,
   } = props;
 
-  const barStyles = {
-    height: 20,
-    width: "800px",
-    backgroundImage: `url(${bar})`,
-    transition: `width ${processingTime} ease-in-out`,
-    // animation To be done
-  };
-  const topStyles = {
-    height: 20,
-    width: `${value}%`,
-    backgroundImage: `url(${pointer})`,
-    textAlign: "right",
-  };
+  const loading = keyframes`
+  from{
+    width:0;
+  }
+  to{
+    width:${value}%;
+  }
+  `;
+  const Top = styled.div`
+    height: 20px;
+    background-image: url(${pointer});
+    border-radius: inherit;
+    text-align: right;
+    animation: ${loading} ${processingTime}s ease-in-out
+      ${repeatable ? repeatTimes : 1};
+    width: ${value}%;
+  `;
+
+  const Bar = styled.div`
+    height: 20px;
+    width: 800px;
+    background-image: url(${bar});
+    border-radius: 20px;
+  `;
 
   return (
     <div className='content'>
       <h2>Progress Bar Display</h2>
-      <div style={barStyles}>
-        <div style={topStyles}>
+      <Bar>
+        <Top>
           <p>{`${value}%`}</p>
-        </div>
-      </div>
+        </Top>
+      </Bar>
       <div className='min-text'>{minValue}</div>
       <div className='max-text'>{maxValue}</div>
     </div>
