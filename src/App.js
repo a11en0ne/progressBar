@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import ProgressBar from "./ProgressBar";
 
 const defaultData = {
-  topImg: "./pointer.jpg",
-  barImg: "./bar.jpg",
+  topImg: "/pointer.jpg",
+  barImg: "/bar.jpg",
   minValue: 0,
   maxValue: 100,
   stopValue: 30,

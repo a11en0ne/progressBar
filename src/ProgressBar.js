@@ -1,6 +1,4 @@
 import React from "react";
-import bar from "./bar.jpg";
-import pointer from "./pointer.jpg";
 import styled, { keyframes } from "styled-components";
 
 function ProgressBar(props) {
@@ -26,7 +24,7 @@ function ProgressBar(props) {
   `;
   const Top = styled.div`
     height: 20px;
-    background-image: url(${pointer});
+    background-image: url(${process.env.PUBLIC_URL + topImg});
     border-radius: inherit;
     text-align: right;
     animation: ${loading} ${processingTime}s ease-in-out
@@ -37,7 +35,7 @@ function ProgressBar(props) {
   const Bar = styled.div`
     height: 20px;
     width: 800px;
-    background-image: url(${bar});
+    background-image: url(${process.env.PUBLIC_URL + barImg});
     border-radius: 20px;
   `;
 
