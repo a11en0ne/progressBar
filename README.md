@@ -2,7 +2,8 @@
 
 defaultData as input can be changed
 
-images send to public folder, and use "process.env.PUBLIC_URL + imageName" as src
+images send to public folder,
+and use "process.env.PUBLIC_URL + imageName" as src
 
 check online version: https://progress-bar-auto.netlify.app/
 
