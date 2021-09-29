@@ -12,6 +12,7 @@ function ProgressBar(props) {
     repeatable,
     repeatTimes,
     value,
+    stopValue,
   } = props;
 
   const loading = keyframes`
@@ -19,7 +20,7 @@ function ProgressBar(props) {
     width:0;
   }
   to{
-    width:${value}%;
+    width:${stopValue}%;
   }
   `;
   const Top = styled.div`
@@ -29,7 +30,7 @@ function ProgressBar(props) {
     text-align: right;
     animation: ${loading} ${processingTime}s ease-in-out
       ${repeatable ? repeatTimes : 1};
-    width: ${value}%;
+    width: ${stopValue}%;
   `;
 
   const Bar = styled.div`
@@ -44,7 +45,7 @@ function ProgressBar(props) {
       <h2>Progress Bar Display</h2>
       <Bar>
         <Top>
-          <p>{`${value}%`}</p>
+          <p>{`${stopValue}%`}</p>
         </Top>
       </Bar>
       <div className='min-text'>{minValue}</div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ProgressBar from "./ProgressBar";
 
 const defaultData = {
@@ -14,20 +14,20 @@ const defaultData = {
 
 function App() {
   // set value
-  const [value, setValue] = useState(0);
-  useEffect(() => {
-    let interval = setInterval(
-      () => setValue(defaultData.stopValue),
-      defaultData.processingTime * 1000
-    );
-    return () => {
-      clearInterval(interval);
-      setValue(0);
-    };
-  }, []);
+  // const [value, setValue] = useState(0);
+  // useEffect(() => {
+  //   let interval = setInterval(
+  //     () => setValue(defaultData.stopValue),
+  //     defaultData.processingTime * 1000
+  //   );
+  //   return () => {
+  //     clearInterval(interval);
+  //     setValue(0);
+  //   };
+  // }, []);
   return (
     <div className='App'>
-      <ProgressBar {...defaultData} value={value} />
+      <ProgressBar {...defaultData} />
     </div>
   );
 }
